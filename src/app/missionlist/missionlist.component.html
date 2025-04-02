@@ -5,30 +5,9 @@
 
 <ul>
   <li *ngFor="let launch of filteredLaunches">
-    <h3>🚀 Flight #{{ launch.flight_number }} - {{ launch.mission_name }}</h3>
-    <p><strong>Launch Year:</strong> {{ launch.launch_year }}</p>
-    <p><strong>Details:</strong> {{ launch.details ? launch.details : 'No details available' }}</p>
-
-    <h4>Rocket Information:</h4>
-    <ul>
-      <li><strong>Name:</strong> {{ launch.rocket.rocket_name }}</li>
-      <li><strong>Type:</strong> {{ launch.rocket.rocket_type }}</li>
-    </ul>
-
-    <h4>Links & Media:</h4>
-    <img *ngIf="launch.links.mission_patch_small" [src]="launch.links.mission_patch_small" alt="Mission Patch" width="100">
-    <ul>
-      <li *ngIf="launch.links.article_link">
-        <a [href]="launch.links.article_link" target="_blank">📖 Read Article</a>
-      </li>
-      <li *ngIf="launch.links.wikipedia">
-        <a [href]="launch.links.wikipedia" target="_blank">🌍 Wikipedia</a>
-      </li>
-      <li *ngIf="launch.links.video_link">
-        <a [href]="launch.links.video_link" target="_blank">🎥 Watch Launch</a>
-      </li>
-    </ul>
-
-    <hr>
-  </li>
+    <h3>🚀 Flight #{{ launch.flight_number }} - 
+      <a [routerLink]="['/mission', launch.flight_number]">{{ launch.mission_name }} ({{ launch.launch_year }})</a>
+    </h3>
+  </li>  
 </ul>
+
