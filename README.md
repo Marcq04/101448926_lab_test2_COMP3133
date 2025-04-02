@@ -1,6 +1,6 @@
 # Project Title
 
-This is the second lab test of COMP 3133
+This is the second lab test of COMP 3133 where I am tasked to create an Angular website with components, service, and Angular materials to fetch data from Space X REST API.
 
 ## Screenshots
 
