@@ -31,4 +31,8 @@ export class MissiondetailsComponent implements OnInit {
   goBack(): void {
     this.router.navigate(['/']);
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0710f786fdb1920ca6d5d090e32dc601535534c9
