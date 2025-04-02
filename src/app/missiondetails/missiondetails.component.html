@@ -1,33 +1,46 @@
-<h2>Mission Details</h2>
+<mat-card *ngIf="missionDetails" class="mission-card">
+  <mat-card-header>
+    <mat-card-title>
+      🚀 Flight #{{ missionDetails.flight_number }} - {{ missionDetails.mission_name }}
+    </mat-card-title>
+    <mat-card-subtitle>Launch Year: {{ missionDetails.launch_year }}</mat-card-subtitle>
+  </mat-card-header>
 
-<div *ngIf="missionDetails">
-  <h3>🚀 Flight #{{ missionDetails.flight_number }} - {{ missionDetails.mission_name }}</h3>
-  <p><strong>Launch Year:</strong> {{ missionDetails.launch_year }}</p>
-  <p><strong>Details:</strong> {{ missionDetails.details ? missionDetails.details : 'No details available' }}</p>
+  <mat-card-content>
+    <p><strong>Details:</strong> {{ missionDetails.details ? missionDetails.details : 'No details available' }}</p>
 
-  <h4>Rocket Information:</h4>
-  <ul>
-    <li><strong>Name:</strong> {{ missionDetails.rocket.rocket_name }}</li>
-    <li><strong>Type:</strong> {{ missionDetails.rocket.rocket_type }}</li>
-  </ul>
+    <h4>🚀 Rocket Information:</h4>
+    <mat-list>
+      <mat-list-item><strong>Name:</strong> {{ missionDetails.rocket.rocket_name }}</mat-list-item>
+      <mat-list-item><strong>Type:</strong> {{ missionDetails.rocket.rocket_type }}</mat-list-item>
+    </mat-list>
 
-  <h4>Links & Media:</h4>
-  <img *ngIf="missionDetails.links.mission_patch_small" [src]="missionDetails.links.mission_patch_small" alt="Mission Patch" width="100">
-  <ul>
-    <li *ngIf="missionDetails.links.article_link">
-      <a [href]="missionDetails.links.article_link" target="_blank">📖 Read Article</a>
-    </li>
-    <li *ngIf="missionDetails.links.wikipedia">
-      <a [href]="missionDetails.links.wikipedia" target="_blank">🌍 Wikipedia</a>
-    </li>
-    <li *ngIf="missionDetails.links.video_link">
-      <a [href]="missionDetails.links.video_link" target="_blank">🎥 Watch Launch</a>
-    </li>
-  </ul>
+    <h4>🔗 Links & Media:</h4>
+    <div class="mission-links">
+      <img *ngIf="missionDetails.links.mission_patch_small" 
+           [src]="missionDetails.links.mission_patch_small" 
+           alt="Mission Patch" width="100">
 
-  <button (click)="goBack()">Go Back</button>
-</div>
+      <mat-list>
+        <mat-list-item *ngIf="missionDetails.links.article_link">
+          <a mat-button color="primary" [href]="missionDetails.links.article_link" target="_blank">📖 Read Article</a>
+        </mat-list-item>
+        <mat-list-item *ngIf="missionDetails.links.wikipedia">
+          <a mat-button color="accent" [href]="missionDetails.links.wikipedia" target="_blank">🌍 Wikipedia</a>
+        </mat-list-item>
+        <mat-list-item *ngIf="missionDetails.links.video_link">
+          <a mat-button color="warn" [href]="missionDetails.links.video_link" target="_blank">🎥 Watch Launch</a>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goBack()">⬅ Go Back</button>
+  </mat-card-actions>
+</mat-card>
 
 <div *ngIf="!missionDetails">
+  <mat-spinner></mat-spinner>
   <p>Loading mission details...</p>
 </div>

@@ -1,0 +1,55 @@
+.mission-card {
+    background-color: #1e1e2f; /* Dark background for a space theme */
+    color: white; /* White text for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .mission-card mat-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffcc00; /* Gold color for space effect */
+  }
+  
+  .mission-card mat-card-subtitle {
+    font-size: 1rem;
+    color: #ddd;
+  }
+  
+  .mission-card mat-card-content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .mission-card .mission-links {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent overlay */
+    border-radius: 5px;
+  }
+  
+  .mission-card mat-list-item {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .mission-card a {
+    text-decoration: none;
+    color: #ffcc00;
+  }
+  
+  .mission-card a:hover {
+    text-decoration: underline;
+    color: #ffdd44;
+  }
+  
+  mat-spinner {
+    display: block;
+    margin: auto;
+  }
+  

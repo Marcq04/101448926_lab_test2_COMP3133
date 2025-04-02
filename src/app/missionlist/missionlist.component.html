@@ -1,12 +1,27 @@
-<h2>SpaceX Launch Missions</h2>
+<h2> SpaceX Launch Missions</h2>
 
 <!-- Include Filter Component -->
 <app-missionfilter (filterChange)="onFilterChange($event)"></app-missionfilter>
 
-<ul>
-  <li *ngFor="let launch of filteredLaunches">
-    <h3>🚀 Flight #{{ launch.flight_number }} - 
-      <a [routerLink]="['/mission', launch.flight_number]">{{ launch.mission_name }} ({{ launch.launch_year }})</a>
-    </h3>
-  </li>  
-</ul>
+<!-- Material Grid List for Responsive Layout -->
+<div class="mission-container">
+  <mat-card *ngFor="let launch of filteredLaunches" class="mission-card">
+    <mat-card-header>
+      <mat-card-title>{{ launch.mission_name }}</mat-card-title>
+      <mat-card-subtitle>Flight #{{ launch.flight_number }} ({{ launch.launch_year }})</mat-card-subtitle>
+    </mat-card-header>
+    
+    <img *ngIf="launch.links.mission_patch_small" [src]="launch.links.mission_patch_small" alt="Mission Patch" width="100">
+    
+    <mat-card-content>
+      <p>{{ launch.details ? launch.details : 'No details available' }}</p>
+    </mat-card-content>
+    
+    <mat-card-actions align="end">
+      <button mat-button color="primary" [routerLink]="['/mission', launch.flight_number]">
+        View Details
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

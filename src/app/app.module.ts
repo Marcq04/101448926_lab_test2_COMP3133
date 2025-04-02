@@ -8,6 +8,15 @@ import { MissionlistComponent } from './missionlist/missionlist.component';
 import { provideHttpClient } from '@angular/common/http';
 import { MissionfilterComponent } from './missionfilter/missionfilter.component';
 
+// Angular Material Imports
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +26,14 @@ import { MissionfilterComponent } from './missionfilter/missionfilter.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     provideHttpClient(),

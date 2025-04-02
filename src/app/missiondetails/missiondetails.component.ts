@@ -5,15 +5,26 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Models } from '../models';
 
+// Angular Material Imports
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatListModule } from '@angular/material/list';
+
 @Component({
   selector: 'app-missiondetails',
   templateUrl: './missiondetails.component.html',
   styleUrls: ['./missiondetails.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatToolbarModule, MatCardModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatProgressSpinnerModule, MatListModule],
 })
 export class MissiondetailsComponent implements OnInit {
   missionDetails?: Models;
+  isLoading = true;
 
   constructor(private route: ActivatedRoute, private spacexApi: SpacexApiService, private router: Router) {}
 
@@ -31,8 +42,4 @@ export class MissiondetailsComponent implements OnInit {
   goBack(): void {
     this.router.navigate(['/']);
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0710f786fdb1920ca6d5d090e32dc601535534c9
