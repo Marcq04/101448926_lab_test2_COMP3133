@@ -14,6 +14,22 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+const prerenderRoutes = [
+  '/',
+  ...Array.from({ length: 110 }, (_, i) => `/mission/${i + 1}`),
+]
+
+const getPrerenderParams = (route: string) => {
+  if (route.startsWith('/mission/')) {
+    const flightNumber = route.substring('/mission/'.length);
+    return { flightNumber }
+  }
+
+  return {};
+};
+
+export { prerenderRoutes, getPrerenderParams };
+
 /**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.

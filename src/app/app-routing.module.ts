@@ -4,9 +4,13 @@ import { MissionlistComponent } from './missionlist/missionlist.component';
 import { MissiondetailsComponent } from './missiondetails/missiondetails.component';
 
 const routes: Routes = [
-  { path: '', component: MissionlistComponent },
-  { path: 'mission/:flight_number', loadComponent: () => import('./missiondetails/missiondetails.component').then(m => m.MissiondetailsComponent) } // ✅ Lazy-load standalone component
+  {
+    path: 'mission/:flight_number',
+    component: MissiondetailsComponent,
+    data: { renderMode: 'full' } // Specify full render mode for dynamic routes
+  },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
