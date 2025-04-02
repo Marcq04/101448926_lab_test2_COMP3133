@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SpacexApiService } from '../services/spacex-api.service';
+import { Models } from '../models';
 
 @Component({
   selector: 'app-missionlist',
@@ -8,10 +10,10 @@ import { SpacexApiService } from '../services/spacex-api.service';
   styleUrl: './missionlist.component.css'
 })
 export class MissionlistComponent implements OnInit {
-  launches: any[] = [];
-  filteredLaunches: any[] = [];
+  launches: Models[] = [];
+  filteredLaunches: Models[] = [];
 
-  constructor(private spacexApi: SpacexApiService) { }
+  constructor(private spacexApi: SpacexApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.spacexApi.getLaunches().subscribe(data => {
@@ -27,5 +29,9 @@ export class MissionlistComponent implements OnInit {
     else {
       this.filteredLaunches = this.launches;
     }
+  }
+
+  viewMissionDetails(flightNumber: number): void {
+    this.router.navigate(['/mission', flightNumber]);
   }
 }

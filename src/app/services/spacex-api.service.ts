@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Models } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class SpacexApiService {
 
   constructor(private http: HttpClient) { }
 
-  getLaunches(): Observable<any> {
-    return this.http.get<any[]>(this.apiUrl);
+  getLaunches(): Observable<Models[]> {
+    return this.http.get<Models[]>(this.apiUrl);
   }
 }

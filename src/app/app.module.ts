@@ -7,14 +7,12 @@ import { AppComponent } from './app.component';
 import { MissionlistComponent } from './missionlist/missionlist.component';
 import { provideHttpClient } from '@angular/common/http';
 import { MissionfilterComponent } from './missionfilter/missionfilter.component';
-import { MissiondetailsComponent } from './missiondetails/missiondetails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MissionlistComponent,
-    MissionfilterComponent,
-    MissiondetailsComponent
+    MissionfilterComponent
   ],
   imports: [
     BrowserModule,
